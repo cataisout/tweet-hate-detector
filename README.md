@@ -1,6 +1,6 @@
 # Tweet Hate Detector
 
-O Tweet Hate Detector é uma aplicação que utiliza técnicas de Processamento de Linguagem Natural aliadas a Machine Learning para detectar tweets que contenham discurso de ódio. Esta aplicação é útil para identificar e filtrar conteúdo prejudicial em redes sociais. Ela atualmente é mais eficaz na identificação de discursos que envolvem sexismo e machismo, pois os dados utilizados possuiam em maior parte textos com esses rótulos
+O Tweet Hate Detector é uma aplicação que utiliza técnicas de Processamento de Linguagem Natural aliadas a Machine Learning para detectar tweets que contenham discurso de ódio. Esta aplicação é útil para identificar e filtrar conteúdo prejudicial em redes sociais. Ela atualmente é mais eficaz na identificação de discursos que envolvem sexismo e machismo, pois os dados utilizados no treinamento possuiam em maior parte textos com esses rótulos
 
 ## Estrutura do Projeto
 
@@ -29,8 +29,6 @@ docker run -p 5000:5000 tweet-hate-detector
 http://localhost:5000
 
 
-
-
 ## Contribuindo
 
 Se você quiser contribuir para este projeto, sinta-se à vontade para enviar pull requests. Toda contribuição é bem-vinda!
@@ -43,6 +41,8 @@ Se você quiser contribuir para este projeto, sinta-se à vontade para enviar pu
 2. **Utilizar Embeddings para Vetorização**: Explorar o uso de embeddings para vetorizar os tweets, o que pode melhorar a qualidade da detecção de discurso de ódio ao capturar nuances semânticas e contextuais.
 
 3. **Testar Outras Arquiteturas de Redes Neurais**: Experimentar e avaliar outras arquiteturas de redes neurais para a detecção de discurso de ódio, como redes convolucionais (CNNs) ou redes recorrentes (RNNs), a fim de identificar a mais adequada para o problema em questão.
+
+4. **Melhorar a classificação de outros tipos de discurso de ódio**: Buscar novas amostras de textos com ourtos tipos de discursos de ódio (direcionados a outros grupos), ou implementar técnicas de oversampling para melhor generalização das amostras ja exitentes
 
 
 
