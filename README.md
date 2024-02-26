@@ -42,7 +42,7 @@ Se você quiser contribuir para este projeto, sinta-se à vontade para enviar pu
 
 3. **Testar Outras Arquiteturas de Redes Neurais**: Experimentar e avaliar outras arquiteturas de redes neurais para a detecção de discurso de ódio, como redes convolucionais (CNNs) ou redes recorrentes (RNNs), a fim de identificar a mais adequada para o problema em questão.
 
-4. **Melhorar a classificação de outros tipos de discurso de ódio**: Buscar novas amostras de textos com ourtos tipos de discursos de ódio (direcionados a outros grupos), ou implementar técnicas de oversampling para melhor generalização das amostras ja exitentes
+4. **Melhorar a Classificação de Outros Tipos de Discurso de Ódio**: Buscar novas amostras de textos com ourtos tipos de discursos de ódio (direcionados a outros grupos), ou implementar técnicas de oversampling para melhor generalização das amostras ja existentes
 
 
 
