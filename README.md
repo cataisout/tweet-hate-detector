@@ -1,6 +1,6 @@
 # Tweet Hate Detector
 
-O Tweet Hate Detector é uma aplicação que utiliza modelos de machine learning para detectar tweets que contenham discurso de ódio. Esta aplicação é útil para identificar e filtrar conteúdo prejudicial em redes sociais.
+O Tweet Hate Detector é uma aplicação que utiliza técnicas de Processamento de Linguagem Natural aliadas a Machine Learning para detectar tweets que contenham discurso de ódio. Esta aplicação é útil para identificar e filtrar conteúdo prejudicial em redes sociais. Ela atualmente é mais eficaz na identificação de discursos que envolvem sexismo e machismo, pois os dados utilizados possuiam em maior parte textos com esses rótulos
 
 ## Estrutura do Projeto
 
