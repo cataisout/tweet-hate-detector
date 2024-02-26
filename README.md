@@ -19,10 +19,10 @@ Para rodar a aplicação localmente, é necessário ter o Python e o Docker inst
 1. Clone o repositório para a sua máquina local
 2. Abra a pasta raiz do projeto
 3. Construa a imagem do Docker utilizando o Dockerfile fornecido:
-docker build -t tweet-hate-detector .
+"docker build -t tweet-hate-detector ."
 
 4. Execute o container Docker:
-docker run -p 5000:5000 tweet-hate-detector
+"docker run -p 5000:5000 tweet-hate-detector"
 
 
 5. Acesse a aplicação em seu navegador web através do seguinte endereço:
