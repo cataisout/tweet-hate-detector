@@ -10,17 +10,17 @@ import zipfile
 
 
 # descompactando o arquivo pca
-pca_compactado = '../models/pca.zip'
-pca_descompactado = '../models/pca_descompactado.pkl'
+pca_compactado = 'src/models/pca.zip'
+pca_descompactado = 'src/models/pca_descompactado.pkl'
 with zipfile.ZipFile(pca_compactado, 'r') as zf:
     with open(pca_descompactado, 'wb') as f_out:
         f_out.write(zf.read(zf.namelist()[0]))
 
 
 ## carregando os objetos treinados
-vectorizer = joblib.load('../models/tfidf_vectorizer.pkl')
-clf = joblib.load('../models/classifier.pkl')
-scaler = joblib.load('../models/scaler.pkl')
+vectorizer = joblib.load('src/models/tfidf_vectorizer.pkl')
+clf = joblib.load('src/models/classifier.pkl')
+scaler = joblib.load('src/models/scaler.pkl')
 pca = joblib.load(pca_descompactado)
 
 
