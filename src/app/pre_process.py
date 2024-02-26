@@ -6,18 +6,30 @@ from sklearn.decomposition import PCA
 from sklearn.neural_network import MLPClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
 import joblib
+import zipfile
 
+
+# descompactando o arquivo pca
+pca_compactado = '../models/pca.zip'
+pca_descompactado = '../models/pca_descompactado.pkl'
+with zipfile.ZipFile(pca_compactado, 'r') as zf:
+    with open(pca_descompactado, 'wb') as f_out:
+        f_out.write(zf.read(zf.namelist()[0]))
 
 
 ## carregando os objetos treinados
-vectorizer = joblib.load('tfidf_vectorizer.pkl')
-clf = joblib.load('classifier.pkl')
-pipeline = joblib.load('pre_process_pipeline.pkl')
-
+vectorizer = joblib.load('../models/tfidf_vectorizer.pkl')
+clf = joblib.load('../models/classifier.pkl')
+scaler = joblib.load('../models/scaler.pkl')
+pca = joblib.load(pca_descompactado)
 
 
 
 def pre_processamento(x):
+    pipeline = Pipeline([
+    ('scaler', scaler),
+    ('pca', pca) ])
+
     return pipeline.transform(x)
 
 def vetoriza(texto_tratado):
