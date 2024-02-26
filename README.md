@@ -12,7 +12,7 @@ O projeto está estruturado da seguinte forma:
 
 ## Requisitos de Instalação
 
-Para rodar a aplicação localmente, é necessário ter o Python e o Docker instalados no seu sistema.
+Para rodar a aplicação localmente, é necessário ter o Python e o Docker instalados no seu sistema, idealmente linux, ou no wsl
 
 ## Como Rodar a Aplicação
 
