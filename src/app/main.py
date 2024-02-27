@@ -1,33 +1,45 @@
-from flask import Flask
+from flask import Flask, render_template, request
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField
+from wtforms.validators import DataRequired
 import txt_cleaning as tc
 import pre_process as pp
 
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'chave_secreta'
 
-@app.route('/')
+
+class TextoForm(FlaskForm):
+    texto = StringField('Digite abaixo seu Tweet', validators=[DataRequired()])
+    submit = SubmitField('Analisar')
+
+    
+@app.route('/', methods=['GET', 'POST'])
 
 def home():
-    return "Minha primeira API"
+    form = TextoForm()
+    resultado = None
+    if form.validate_on_submit():
+        texto = form.texto.data
+        resultado = classifica_texto(texto)
+    return render_template('index.html', form=form, resultado=resultado)
 
-@app.route('/teste')
-
-def secreto():
-    return "olá vc achou um lugar secreto hihihihih"
-
-
-@app.route('/analise_texto/<string:texto>')
 def classifica_texto(texto):
     txt_limpo = tc.limpeza(texto)
     txt_norm = tc.normaliza(txt_limpo)
     txt_nostopwords = tc.remove_stopwords(txt_norm)
     txt_token = tc.tokeniza(txt_nostopwords)
-    #return pp.vetoriza(txt_token)
     txt_vec = pp.vetoriza(txt_token)
     txt_process = pp.pre_processamento(txt_vec)
     valor_previsao = pp.predict(txt_process)[0]
 
-    if valor_previsao == 0: return 'Não possui discurso de ódio' 
-    return 'Possui discurso de ódio' 
+    if valor_previsao == 0:
+        return 'Não possui discurso de ódio'
+  
+    
+    return 'Possui discurso de ódio'
 
-app.run(debug=True, host='0.0.0.0', port=5000)
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=5000)

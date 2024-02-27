@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classificação de Texto</title>
+    <style>
+        form {
+            margin-top: 50px;
+            text-align: center;
+        }
+        .resultado {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="/">
+        {{ form.hidden_tag() }}
+        {{ form.texto.label }}<br>
+        {{ form.texto(size=32) }}<br>
+        {% for error in form.texto.errors %}
+            <span style="color: red;">{{ error }}</span><br>
+        {% endfor %}
+        {{ form.submit }}
+    </form>
+    {% if resultado %}
+        <div class="resultado">{{ resultado }}</div>
+    {% endif %}
+</body>
+</html>

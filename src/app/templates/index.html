@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tweet Hate Detector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        form {
+            text-align: center;
+        }
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            height: 200px;
+            resize: vertical;
+            font-size: 16px; /* Tamanho da fonte aumentado */
+            vertical-align: top; /* Alinha o texto ao topo */
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .resultado {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center;">Detector de Discurso de Ódio</h1>
+        <form method="POST" action="/">
+            {{ form.hidden_tag() }}
+            {{ form.texto.label }}<br>
+            {{ form.texto(size=50) }}<br>
+            {% for error in form.texto.errors %}
+                <span style="color: red;">{{ error }}</span><br>
+            {% endfor %}
+            {{ form.submit }}
+        </form>
+        {% if resultado %}
+            <div class="resultado">{{ resultado }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
